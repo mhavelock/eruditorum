@@ -1,16 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<script src="script.js"></script>
-<link rel="shortcut icon" href="favicon.ico" width=32px>
-<link rel="stylesheet" href="styles.css" media="all" />
-<title>eruditorium.org</title>
-</head>
-<body>
-	<div>
-        <button><img src="eruditorium.webp" alt="eruditorim" width="1542" height="1000" /></button>
-    </div>
-    <canvas width=32 height=32></canvas>
-</body>
+  <head>
+    <!-- Character encoding - declare early for security -->
+    <meta charset="UTF-8" />
+
+    <!-- Viewport configuration for responsive design and mobile optimization -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+
+    <!-- Page title (appears in browser tab) -->
+    <title>eruditorium.org</title>
+
+    <!-- Favicon link -->
+    <link rel="shortcut icon" href="favicon.ico" />
+
+    <!-- Critical CSS - loaded in <head> for immediate rendering -->
+    <link rel="stylesheet" href="styles/critical.css" />
+
+    <!-- Non-critical CSS - deferred loading for better performance -->
+    <!-- media="print" trick: CSS doesn't apply initially, loads in background -->
+    <!-- onload handler switches media to "all" once loaded -->
+    <link
+      rel="stylesheet"
+      href="styles/global.css"
+      media="print"
+      onload="this.media='all'"
+    />
+    <link
+      rel="stylesheet"
+      href="styles/components.css"
+      media="print"
+      onload="this.media='all'"
+    />
+    <link
+      rel="stylesheet"
+      href="styles/utilities.css"
+      media="print"
+      onload="this.media='all'"
+    />
+
+    <!-- Fallback for browsers that don't support onload -->
+    <noscript>
+      <link rel="stylesheet" href="styles/global.css" />
+      <link rel="stylesheet" href="styles/components.css" />
+      <link rel="stylesheet" href="styles/utilities.css" />
+    </noscript>
+  </head>
+  <body>
+    <!-- Main content area -->
+    <main>
+      <!-- Interactive button with image -->
+      <!-- aria-label provides accessibility context for screen readers -->
+      <!-- The button triggers the favicon animation on hover -->
+      <button aria-label="Click to animate favicon">
+        <img
+          src="eruditorium.webp"
+          alt="Eruditorium logo"
+          width="1542"
+          height="1000"
+          loading="lazy"
+        />
+      </button>
+    </main>
+
+    <!-- Hidden canvas element for drawing favicon animation -->
+    <!-- Canvas doesn't render visually but is used to generate PNG for favicon -->
+    <!-- Positioned off-flow (position: absolute) to prevent layout shift -->
+    <canvas width="32" height="32" aria-hidden="true"></canvas>
+
+    <!-- Application JavaScript modules - loaded at end of body for better performance -->
+    <!-- Module containing favicon animation logic -->
+    <script src="js/favicon-animator.js" defer></script>
+    <!-- Main entry point - initializes all modules -->
+    <script src="js/main.js" defer></script>
+  </body>
 </html>

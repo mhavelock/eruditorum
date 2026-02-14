@@ -1,0 +1,25 @@
+/**
+ * Component CSS
+ * Styles for interactive and reusable UI components
+ * Safe to defer loading (non-critical path)
+ */
+
+/* Button interaction states */
+button:hover {
+  opacity: 0.9;
+}
+
+button:active {
+  opacity: 0.8;
+}
+
+button:focus {
+  outline: 2px solid hsl(204, 100%, 94%);
+  outline-offset: 2px;
+}
+
+/* Canvas animation container styles */
+canvas {
+  width: 32px;
+  height: 32px;
+}
