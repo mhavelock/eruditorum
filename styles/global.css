@@ -1,0 +1,28 @@
+/**
+ * Global CSS
+ * Reusable styles for typography, links, and general elements
+ * Safe to defer loading (non-critical path)
+ */
+
+@charset "UTF-8";
+
+/* Paragraph typography */
+p {
+  font-size: 1.5em;
+}
+
+/* Link styles */
+a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: hsl(204, 100%, 80%);
+}
+
+a:focus {
+  outline: 2px solid hsl(204, 100%, 94%);
+  outline-offset: 2px;
+}
