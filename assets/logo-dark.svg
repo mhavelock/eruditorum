@@ -1,0 +1,18 @@
+<svg viewBox="0 0 400 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Dark Logo - Primary Color (#310101) -->
+  <!-- Used in light backgrounds, header on dark mode -->
+  <defs>
+    <style>
+      .logo-text {
+        font-family: Georgia, 'Times New Roman', serif;
+        font-size: 48px;
+        font-weight: bold;
+        fill: #310101;
+        text-anchor: middle;
+        dominant-baseline: middle;
+      }
+    </style>
+  </defs>
+
+  <text x="50%" y="50%" class="logo-text">eruditorum.org</text>
+</svg>

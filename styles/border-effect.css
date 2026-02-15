@@ -1,0 +1,139 @@
+/**
+ * Animated Border Effect
+ * =======================
+ * Creates a rotating conic gradient border effect on hover
+ * Uses CSS variables for easy customization
+ * Animated border traces from primary brand color
+ */
+
+/* Center container for button */
+.center-box {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Animated border box - creates the glow/outline effect */
+.effect-animate-border,
+.effect-animate-border + button {
+  max-height: 200px;
+  max-width: 250px;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
+  z-index: 0;
+  /* Border styling from CSS variables */
+  border-radius: var(--border-radius);
+}
+
+/* Blur filter for glow effect */
+.effect-animate-border {
+  overflow: hidden;
+  filter: blur(var(--border-blur));
+}
+
+/* Rotating gradient for border animation */
+.effect-animate-border:before,
+.effect-animate-border + button:before {
+  content: '';
+  z-index: -2;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(0deg);
+  position: absolute;
+  width: 99999px;
+  height: 99999px;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  /* Conic gradient using primary brand color for border */
+  background-image: conic-gradient(
+    rgba(0, 0, 0, 0),
+    var(--color-primary),
+    rgba(0, 0, 0, 0) 25%
+  );
+  /* Rotate animation - duration from CSS variable */
+  animation: rotate var(--animation-duration) linear infinite;
+}
+
+/* Inner border cleanup */
+.effect-animate-border:after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  /* Border width from CSS variable */
+  left: var(--border-width);
+  top: var(--border-width);
+  /* Calculate dimensions minus double border width */
+  width: calc(100% - calc(2 * var(--border-width)));
+  height: calc(100% - calc(2 * var(--border-width)));
+  /* Transparent background to show content inside */
+  background: transparent;
+  /* Border radius from CSS variable */
+  border-radius: calc(var(--border-radius) - 2px);
+}
+
+/* Position button on top of border effect */
+.effect-animate-border + button {
+  position: relative;
+  z-index: 1;
+  max-width: 200px;
+  max-height: 200px;
+}
+
+/* Rotation keyframe animation */
+@keyframes rotate {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(1turn);
+  }
+}
+
+/* ===== HOVER ACTIVATION ===== */
+
+/* Pause animation when not hovering (optional enhancement) */
+/* Uncomment the following for hover-only animation behavior */
+/*
+.effect-animate-border:not(:hover):before,
+.effect-animate-border + button:not(:hover):before {
+  animation-play-state: paused;
+}
+*/
+
+/* Button interaction states */
+.effect-animate-border + button:hover {
+  opacity: 0.95;
+}
+
+.effect-animate-border + button:active {
+  opacity: 0.85;
+}
+
+.effect-animate-border + button:focus {
+  outline: 2px solid var(--color-text-light);
+  outline-offset: 2px;
+}
+
+/* ===== RESPONSIVE ADJUSTMENTS ===== */
+
+@media (max-width: 768px) {
+  .effect-animate-border,
+  .effect-animate-border + button {
+    max-height: 150px;
+    max-width: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .effect-animate-border,
+  .effect-animate-border + button {
+    max-height: 120px;
+    max-width: 140px;
+  }
+}

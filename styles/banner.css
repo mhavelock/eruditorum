@@ -1,0 +1,103 @@
+/**
+ * Banner Section
+ * ==============
+ * Styling for the banner header with gradient background
+ * and fluid typography that scales with viewport width
+ */
+
+/* Banner container */
+banner {
+  width: 100%;
+  min-height: 300px;
+  display: block;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-secondary) 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Banner heading text - "eruditorum.org" */
+.banner-txt {
+  /* Fluid typography: scales smoothly from 2rem to 4rem based on viewport width */
+  /* clamp(MIN, PREFERRED, MAX) */
+  /* MIN: 2rem (20px at 62.5% base) */
+  /* PREFERRED: 5vw (5% of viewport width) */
+  /* MAX: 4rem (40px at 62.5% base) */
+  font-size: clamp(2rem, 5vw, 4rem);
+
+  /* Typography styling from brand guidelines */
+  color: white;
+  font-family: var(--font-family-heading);
+  font-weight: 700;
+  text-align: center;
+
+  /* Reset default heading margins */
+  margin: 0;
+  padding: 1rem 2rem;
+
+  /* Smooth transitions */
+  transition: all var(--transition-normal) var(--ease-in-out);
+
+  /* Text styling for better readability */
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+}
+
+/* ===== RESPONSIVE ADJUSTMENTS ===== */
+
+/* Tablet and below */
+@media (max-width: 768px) {
+  banner {
+    min-height: 250px;
+  }
+
+  .banner-txt {
+    padding: 1.5rem 1rem;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+  }
+}
+
+/* Mobile devices */
+@media (max-width: 480px) {
+  banner {
+    min-height: 200px;
+  }
+
+  .banner-txt {
+    padding: 1rem 0.5rem;
+    font-size: clamp(1.4rem, 3.5vw, 2.4rem);
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 320px) {
+  banner {
+    min-height: 160px;
+  }
+
+  .banner-txt {
+    padding: 0.75rem 0.25rem;
+    font-size: clamp(1.2rem, 3vw, 2rem);
+  }
+}
+
+/* ===== ACCESSIBILITY ===== */
+
+/* Ensure text is readable in high contrast mode */
+@media (prefers-contrast: more) {
+  .banner-txt {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .banner-txt {
+    transition: none;
+  }
+}
