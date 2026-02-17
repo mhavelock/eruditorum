@@ -59,7 +59,7 @@
   --border-color: var(--color-primary);
 
   /* Border properties for animated border effect */
-  --border-width: 5px;
+  --border-width: 2px;
   --border-radius: 10px;
   --border-blur: 20px;
 
