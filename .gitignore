@@ -1,1 +1,6 @@
 .claude
+dist/
+logs/
+.env
+coverage/
+node_modules/
