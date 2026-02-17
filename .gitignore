@@ -4,3 +4,4 @@ logs/
 .env
 coverage/
 node_modules/
+.github/aw/
