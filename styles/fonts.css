@@ -1,0 +1,57 @@
+/**
+ * Typography & Google Fonts
+ * ==========================
+ * Imports custom Google Fonts and defines font family custom properties
+ * Uses display=swap to prioritize content visibility during font load
+ */
+
+/* Import Google Fonts: Roboto Bold and Open Sans Regular */
+/* display=swap ensures text is visible while fonts load asynchronously */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&family=Open+Sans:wght@400&display=swap');
+
+:root {
+  /* ===== FONT FAMILIES ===== */
+
+  /* Heading Font - Roboto Bold */
+  /* Used for: H1, H2, headers, prominent text */
+  /* Weight: 700 (bold) */
+  --font-family-heading: 'Roboto', sans-serif;
+
+  /* Body Font - Open Sans Regular */
+  /* Used for: paragraphs, body text, general content */
+  /* Weight: 400 (regular) */
+  --font-family-body: 'Open Sans', sans-serif;
+
+  /* Fallback serif font for legacy compatibility */
+  --font-family-serif: Georgia, 'Times New Roman', serif;
+}
+
+/* ===== FONT USAGE ===== */
+
+/* Apply heading font to heading elements */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-family-heading);
+  font-weight: 700;
+}
+
+/* Apply body font to main content */
+body,
+p,
+a,
+li {
+  font-family: var(--font-family-body);
+  font-weight: 400;
+}
+
+/* ===== BANNER TEXT ===== */
+
+/* Banner heading text (H2 for "eruditorum.org") */
+.banner-txt {
+  font-family: var(--font-family-heading);
+  font-weight: 700;
+}

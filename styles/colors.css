@@ -1,0 +1,90 @@
+/**
+ * Brand Colors & Design System
+ * ============================
+ * Defines CSS custom properties for colors, typography, and design tokens
+ * Ensures consistency across all components
+ */
+
+:root {
+  /* ===== BRAND COLORS ===== */
+
+  /* Primary Color - Graphite/Dark Red */
+  /* Used for: borders, highlights, primary CTAs, hover states */
+  --color-primary: #310101;
+
+  /* Secondary Color - Medium Grey */
+  /* Used for: text, secondary backgrounds, neutral elements */
+  --color-secondary: #2f2f2f;
+
+  /* Accent Color - Dark Blue */
+  /* Used for: interactive elements, focus states, secondary CTAs */
+  --color-accent: #04115c;
+
+  /* Neutral Color - Charcoal */
+  /* Used for: body text, dark text on light backgrounds */
+  --color-neutral: #2E2E2E;
+
+  /* ===== LEGACY COLORS (for compatibility with existing animations) ===== */
+
+  /* Background color - existing dark gray */
+  --color-bg-dark: #333;
+
+  /* Text color - existing light cyan */
+  --color-text-light: hsl(204, 100%, 94%);
+
+  /* Gradient colors for favicon animation */
+  --color-gradient-start: #c7f0fe;
+  --color-gradient-end: #56d3c9;
+
+  /* ===== TYPOGRAPHY SIZES ===== */
+  /* Based on 62.5% body font-size (1rem = 10px) */
+
+  /* H1 - 3.2rem = 32px */
+  --font-size-h1: 3.2rem;
+
+  /* H2 - 2.4rem = 24px (used for banner text "eruditorum.org") */
+  --font-size-h2: 2.4rem;
+
+  /* Body text - 1.6rem = 16px */
+  --font-size-body: 1.6rem;
+
+  /* ===== TYPOGRAPHY FAMILIES ===== */
+  /* Defined in fonts.css (Google Fonts) with fallbacks */
+  /* --font-family-heading: 'Roboto', sans-serif; */
+  /* --font-family-body: 'Open Sans', sans-serif; */
+
+  /* ===== BORDER & EFFECTS ===== */
+
+  /* Border color - uses primary brand color */
+  --border-color: var(--color-primary);
+
+  /* Border properties for animated border effect */
+  --border-width: 2px;
+  --border-radius: 10px;
+  --border-blur: 20px;
+
+  /* Animation duration for border rotation */
+  --animation-duration: 4s;
+
+  /* ===== SPACING ===== */
+
+  /* Standardized spacing scale (future use) */
+  --space-xs: 0.25rem;    /* 2.5px */
+  --space-sm: 0.5rem;     /* 5px */
+  --space-md: 1rem;       /* 10px */
+  --space-lg: 1.5rem;     /* 15px */
+  --space-xl: 2rem;       /* 20px */
+  --space-2xl: 3rem;      /* 30px */
+
+  /* ===== TRANSITIONS & TIMING ===== */
+
+  /* Standard transition duration */
+  --transition-fast: 0.2s;
+  --transition-normal: 0.4s;
+  --transition-slow: 0.6s;
+
+  /* Easing functions */
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+}

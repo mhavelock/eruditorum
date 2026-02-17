@@ -13,16 +13,16 @@ p {
 
 /* Link styles */
 a {
-  color: #fff;
+  color: var(--color-text-light);
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: color var(--transition-fast) ease;
 }
 
 a:hover {
-  color: hsl(204, 100%, 80%);
+  color: #c7f0fe;
 }
 
 a:focus {
-  outline: 2px solid hsl(204, 100%, 94%);
+  outline: 2px solid var(--color-text-light);
   outline-offset: 2px;
 }

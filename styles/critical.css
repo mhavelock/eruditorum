@@ -21,8 +21,8 @@ body {
   min-height: 100%;
   font-size: 62.5%;
   line-height: 1;
-  background: #333;
-  color: hsl(204, 100%, 94%);
+  background: var(--color-bg-dark);
+  color: var(--color-text-light);
   font-family: sans-serif;
   margin: 0;
   /* Prevent tap highlight on mobile */
@@ -35,7 +35,7 @@ body {
 }
 
 /* Main container - flexbox layout for vertical/horizontal centering */
-body > div {
+main {
   display: flex;
   height: 100%;
   width: auto;

@@ -16,12 +16,35 @@
     <!-- Favicon link -->
     <link rel="shortcut icon" href="favicon.ico" />
 
+    <!-- ===== CSS LOADING STRATEGY ===== -->
+    <!-- Load order: colors (vars) → critical (layout) → fonts → banner → global → components → utilities -->
+
+    <!-- Brand Color & Design System Variables - CRITICAL -->
+    <link rel="stylesheet" href="styles/colors.css" />
+
     <!-- Critical CSS - loaded in <head> for immediate rendering -->
+    <!-- Contains: resets, base layout, typography baseline -->
     <link rel="stylesheet" href="styles/critical.css" />
 
-    <!-- Non-critical CSS - deferred loading for better performance -->
+    <!-- Google Fonts - deferred loading for better performance -->
     <!-- media="print" trick: CSS doesn't apply initially, loads in background -->
     <!-- onload handler switches media to "all" once loaded -->
+    <link
+      rel="stylesheet"
+      href="styles/fonts.css"
+      media="print"
+      onload="this.media='all'"
+    />
+
+    <!-- Banner Section Styles - deferred -->
+    <link
+      rel="stylesheet"
+      href="styles/banner.css"
+      media="print"
+      onload="this.media='all'"
+    />
+
+    <!-- Non-critical CSS - deferred loading for better performance -->
     <link
       rel="stylesheet"
       href="styles/global.css"
@@ -43,13 +66,52 @@
 
     <!-- Fallback for browsers that don't support onload -->
     <noscript>
+      <link rel="stylesheet" href="styles/fonts.css" />
+      <link rel="stylesheet" href="styles/banner.css" />
       <link rel="stylesheet" href="styles/global.css" />
       <link rel="stylesheet" href="styles/components.css" />
       <link rel="stylesheet" href="styles/utilities.css" />
     </noscript>
   </head>
   <body>
-    <!-- Main content area -->
+    <!-- ===== HEADER WITH LOGO ===== -->
+    <!-- Brand header with SVG logo -->
+    <header>
+      <!-- Dark SVG Logo - uses primary color (#310101) -->
+      <!-- Can be swapped with logo-light.svg for light theme -->
+      <a href="/" aria-label="Eruditorum - Home">
+        <svg
+          class="logo"
+          viewBox="0 0 400 100"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        >
+          <defs>
+            <style>
+              .logo-text {
+                font-family: Georgia, 'Times New Roman', serif;
+                font-size: 48px;
+                font-weight: bold;
+                fill: #310101;
+                text-anchor: middle;
+                dominant-baseline: middle;
+              }
+            </style>
+          </defs>
+          <text x="50%" y="50%" class="logo-text">eruditorum.org</text>
+        </svg>
+      </a>
+    </header>
+
+    <!-- ===== BANNER SECTION ===== -->
+    <!-- Full-width banner with gradient background -->
+    <!-- H2 heading with fluid typography that scales with viewport -->
+    <banner>
+      <h2 class="banner-txt">eruditorum.org</h2>
+    </banner>
+
+    <!-- ===== MAIN CONTENT AREA ===== -->
+    <!-- Centered button with image -->
     <main>
       <!-- Interactive button with image -->
       <!-- aria-label provides accessibility context for screen readers -->
@@ -65,14 +127,20 @@
       </button>
     </main>
 
+    <!-- ===== HIDDEN ELEMENTS ===== -->
+
     <!-- Hidden canvas element for drawing favicon animation -->
     <!-- Canvas doesn't render visually but is used to generate PNG for favicon -->
     <!-- Positioned off-flow (position: absolute) to prevent layout shift -->
     <canvas width="32" height="32" aria-hidden="true"></canvas>
 
+    <!-- ===== JAVASCRIPT MODULES ===== -->
     <!-- Application JavaScript modules - loaded at end of body for better performance -->
+    <!-- defer attribute ensures scripts run after DOM is ready -->
+
     <!-- Module containing favicon animation logic -->
     <script src="js/favicon-animator.js" defer></script>
+
     <!-- Main entry point - initializes all modules -->
     <script src="js/main.js" defer></script>
   </body>
